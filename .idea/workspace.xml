@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="abf35d63-19d2-4431-8312-6c0d19649095" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/dashboard/_foreman_plugin_template_widget.html.erb" afterPath="$PROJECT_DIR$/app/views/dashboard/_foreman_plugin_template_widget.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="foreman_host_rundeck.iws" />
     <ignored path=".idea/workspace.xml" />
