@@ -16,11 +16,9 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/lib/tasks/foreman_plugin_template_tasks.rake" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/test/factories/foreman_plugin_template_factories.rb" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/test/unit/foreman_plugin_template_test.rb" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rakefile" afterPath="$PROJECT_DIR$/Rakefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/overrides/dashboard/index/sample_override.html.erb.deface" afterPath="$PROJECT_DIR$/app/overrides/dashboard/index/sample_override.html.erb.deface" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/foreman_host_rundeck.gemspec" afterPath="$PROJECT_DIR$/foreman_host_rundeck.gemspec" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="foreman_host_rundeck.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -86,11 +84,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hosts_controller_test.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="hosts_controller_test.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/functional/hosts_controller_test.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
               <caret line="0" column="28" selection-start-line="0" selection-start-column="28" selection-end-line="0" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="foreman_host_rundeck.gemspec" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/foreman_host_rundeck.gemspec">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+              <caret line="8" column="66" selection-start-line="8" selection-start-column="66" selection-end-line="8" selection-end-column="66" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.28301886" vertical-offset="0" max-vertical-offset="585">
+              <caret line="10" column="86" selection-start-line="10" selection-start-column="86" selection-end-line="10" selection-end-column="86" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rename.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rename.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1110">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -129,7 +157,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/foreman_host_rundeck.gemspec" />
         <option value="$PROJECT_DIR$/lib/foreman_host_rundeck/engine.rb" />
         <option value="$PROJECT_DIR$/lib/foreman_host_rundeck.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
@@ -141,6 +168,8 @@
         <option value="$PROJECT_DIR$/test/functional/rundeck_hosts_controller_test.rb" />
         <option value="$PROJECT_DIR$/test/unit/foreman_host_rundeck_test.rb" />
         <option value="$PROJECT_DIR$/test/functional/hosts_controller_test.rb" />
+        <option value="$PROJECT_DIR$/foreman_host_rundeck.gemspec" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -663,14 +692,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="10.8" vertical-offset="270" max-vertical-offset="660">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.08108108" vertical-offset="0" max-vertical-offset="555">
@@ -707,14 +728,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.054054055" vertical-offset="0" max-vertical-offset="555">
           <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/foreman_host_rundeck.gemspec">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24324325" vertical-offset="0" max-vertical-offset="555">
-          <caret line="9" column="61" selection-start-line="9" selection-start-column="61" selection-end-line="9" selection-end-column="61" />
           <folding />
         </state>
       </provider>
@@ -763,6 +776,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
           <caret line="0" column="28" selection-start-line="0" selection-start-column="28" selection-end-line="0" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/foreman_host_rundeck.gemspec">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+          <caret line="8" column="66" selection-start-line="8" selection-start-column="66" selection-end-line="8" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rename.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1110">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28301886" vertical-offset="0" max-vertical-offset="585">
+          <caret line="10" column="86" selection-start-line="10" selection-start-column="86" selection-end-line="10" selection-end-column="86" />
           <folding />
         </state>
       </provider>
