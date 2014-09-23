@@ -5,9 +5,6 @@ module ForemanHostRundeck
 
     before_filter :find_by_name, :only => [:show]
 
-    # change layout if needed
-    # layout 'foreman_host_rundeck/layouts/new_layout'
-
     def index
       super
       result = {}
@@ -16,7 +13,6 @@ module ForemanHostRundeck
     end
 
     def show
-      binding.pry
       render :text => @host.rundeck.to_yaml
     end
 

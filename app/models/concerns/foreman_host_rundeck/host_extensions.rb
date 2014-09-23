@@ -3,7 +3,6 @@ module ForemanHostRundeck
     extend ActiveSupport::Concern
 
     included do
-      # execute callbacks
     end
 
 
@@ -25,9 +24,6 @@ module ForemanHostRundeck
     end
 
     module ClassMethods
-      # create or overwrite class methods...
-      def class_method_name
-      end
     end
   end
 end
