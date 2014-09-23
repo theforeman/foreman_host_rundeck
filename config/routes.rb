@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
-  match 'new_action', :to => 'foreman_plugin_template/hosts#new_action'
+  match '/rundeck/hosts', :to => 'foreman_host_rundeck/hosts#index'
 
+  constraints(:id => /[^\/]+/) do
+    match '/rundeck/hosts/:id', :to => 'foreman_host_rundeck/hosts#show'
+  end
 end
