@@ -20,7 +20,7 @@ module ForemanHostRundeck
 
     def show_with_rundeck
       if params[:format] == 'yaml'
-        render :text => RundeckFormatter.new(@host).to_yaml
+        render :text => RundeckFormatter.new(@host).output.to_yaml
       else
         show_without_rundeck
       end

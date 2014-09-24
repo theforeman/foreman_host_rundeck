@@ -7,7 +7,7 @@ class ForemanHostRundeckTest < ActiveSupport::TestCase
 
   test "#rundeck returns hash" do
     h = hosts(:one)
-    rundeck = h.rundeck
+    rundeck = RundeckFormatter.new(h).output
     assert_kind_of Hash, rundeck
     assert_equal ['my5name.mydomain.net'], rundeck.keys
     assert_kind_of Hash, rundeck[h.name]
@@ -20,7 +20,7 @@ class ForemanHostRundeckTest < ActiveSupport::TestCase
     h = FactoryGirl.create(:host, :os => host.os, :arch => host.arch, :puppetclasses => host.puppetclasses, :environment => host.environment)
     h.params['rundeckfacts'] = "kernelversion, ipaddress\n"
     h.save!
-    rundeck = h.rundeck
+    rundeck = RundeckFormatter.new(h).output
 
     assert rundeck[h.name]['tags'].include?('class=base'), 'puppet class missing'
     assert rundeck[h.name]['tags'].include?('kernelversion=undefined'), 'kernelversion fact missing'
