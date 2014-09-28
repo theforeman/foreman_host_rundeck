@@ -7,16 +7,13 @@ Creates a yaml representation of rundeck on hosts
 See [How_to_Install_a_Plugin](http://projects.theforeman.org/projects/foreman/wiki/How_to_Install_a_Plugin)
 for how to install Foreman plugins
 
-The line to add to your gemfile is:
-gem 'foreman_host_rundeck', :path => 'https://github.com/orrabin/foreman_host_rundeck'
-
 ## Contributing
 
 Fork and send a Pull Request. Thanks!
 
 ## Copyright
 
-Copyright (c) 2014 Ori Rabin
+Copyright (c) 2014 Red Hat
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

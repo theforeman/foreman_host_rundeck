@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.date        = Date.today.to_s
   s.authors     = ["Ori Rabin"]
   s.email       = ["orabin@redhat.com"]
-  s.homepage    = "https://github.com/orrabin/foreman_host_rundeck"
+  s.homepage    = "https://github.com/theforeman/foreman_host_rundeck"
   s.summary     = "Plugin to create rundeck output for hosts."
   s.description = "Plugin to create rundeck output for hosts."
 
