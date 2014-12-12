@@ -26,4 +26,32 @@ class ForemanHostRundeckTest < ActiveSupport::TestCase
     assert rundeck[@host.name]['tags'].include?('ipaddress=undefined'), 'ipaddress fact missing'
   end
 
+  test "#rundeck returns global parameters with values as tags" do
+    @host.puppetclasses = [FactoryGirl.create(:puppetclass, :environments => [@host.environment])]
+    @host.params['rundeckfacts'] = "kernelversion, ipaddress\n"
+    @host.params['rundeckglobalparams'] = "stage\n"
+    @host.params['stage'] = "prod"
+    @host.save!
+    rundeck = RundeckFormatter.new(@host).output
+    assert rundeck[@host.name]['tags'].include?('stage=prod'), 'stage parameter missing'
+  end
+
+  test "#rundeck returns undefined global parameters as tags" do
+    @host.puppetclasses = [FactoryGirl.create(:puppetclass, :environments => [@host.environment])]
+    @host.params['rundeckfacts'] = "kernelversion, ipaddress\n"
+    @host.params['rundeckglobalparams'] = "someparam, stage\n"
+    @host.save!
+    rundeck = RundeckFormatter.new(@host).output
+    assert rundeck[@host.name]['tags'].include?('someparam=undefined'), 'someparam parameter missing'
+    assert rundeck[@host.name]['tags'].include?('stage=undefined'), 'stage parameter missing'
+  end
+
+  test "#rundeck does not returns global parameters that are not in params['rundeckglobalparams']" do
+    @host.puppetclasses = [FactoryGirl.create(:puppetclass, :environments => [@host.environment])]
+    @host.params['rundeckfacts'] = "kernelversion, ipaddress\n"
+    @host.params['rundeckglobalparams'] = "someparam\n"
+    @host.save!
+    rundeck = RundeckFormatter.new(@host).output
+    refute rundeck[@host.name]['tags'].include?('stage=undefined')
+  end
 end

@@ -11,9 +11,12 @@ class RundeckFormatter
     def output
     rdecktags = puppetclasses_names.map { |k| "class=#{k}" }
     unless params['rundeckfacts'].empty?
-      rdecktags += params['rundeckfacts'].gsub(/\s+/, '').split(',').map { |rdf| "#{rdf}=" + (facts_hash[rdf] || 'undefined') }
+      rdecktags += format_tags(params,'rundeckfacts', facts_hash)
     end
-
+    unless params['rundeckglobalparams'].empty?
+      rdecktags += format_tags(params, 'rundeckglobalparams', params)
+    end
+    
     {name => {'description' => comment, 'hostname' => name, 'nodename' => name,
               'Environment' => environment.name,
               'osArch' => arch.name, 'osFamily' => os.family, 'osName' => os.name,
@@ -23,5 +26,9 @@ class RundeckFormatter
   rescue => e
     logger.warn "Failed to fetch rundeck info for #{to_s}: #{e}"
     {}
+    end
+
+  def format_tags params, tag, tag_location
+    params[tag].gsub(/\s+/, '').split(',').map { |rdf| "#{rdf}=" + (tag_location[rdf] || 'undefined') }
   end
 end
