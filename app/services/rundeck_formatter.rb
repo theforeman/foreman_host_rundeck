@@ -14,7 +14,7 @@ class RundeckFormatter
       rdecktags += params['rundeckfacts'].gsub(/\s+/, '').split(',').map { |rdf| "#{rdf}=" + (facts_hash[rdf] || 'undefined') }
     end
     unless params['rundeckglobalparams'].empty?
-      rdecktags += params['rundeckglobalparams'].gsub(/\s+/, '').split(',').map { |rdp| "#{rdp}=" + (params[rdf] || 'undefined') }
+      rdecktags += params['rundeckglobalparams'].gsub(/\s+/, '').split(',').map { |rdp| "#{rdp}=" + (params[rdp] || 'undefined') }
     end
     
     {name => {'description' => comment, 'hostname' => name, 'nodename' => name,
