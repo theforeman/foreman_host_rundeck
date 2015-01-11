@@ -3,28 +3,27 @@ require 'test_plugin_helper'
 class ForemanHostRundeckTest < ActiveSupport::TestCase
   setup do
     User.current = User.find_by_login "admin"
+    @host = FactoryGirl.create(:host, :operatingsystem => FactoryGirl.create(:operatingsystem),
+                               :architecture => FactoryGirl.create(:architecture))
   end
 
   test "#rundeck returns hash" do
-    h = hosts(:one)
-    rundeck = RundeckFormatter.new(h).output
+    rundeck = RundeckFormatter.new(@host).output
     assert_kind_of Hash, rundeck
-    assert_equal ['my5name.mydomain.net'], rundeck.keys
-    assert_kind_of Hash, rundeck[h.name]
-    assert_equal 'my5name.mydomain.net', rundeck[h.name]['hostname']
-    assert_equal ["class=auth", "class=base", "class=chkmk", "class=nagios", "class=pam"], rundeck[h.name]['tags']
+    assert_equal [@host.name], rundeck.keys
+    assert_kind_of Hash, rundeck[@host.name]
+    assert_equal @host.hostname, rundeck[@host.name]['hostname']
+    assert_equal @host.puppetclasses, rundeck[@host.name]['tags']
   end
 
   test "#rundeck returns extra facts as tags" do
-    host = hosts(:one)
-    h = FactoryGirl.create(:host, :os => host.os, :arch => host.arch, :puppetclasses => host.puppetclasses, :environment => host.environment)
-    h.params['rundeckfacts'] = "kernelversion, ipaddress\n"
-    h.save!
-    rundeck = RundeckFormatter.new(h).output
-
-    assert rundeck[h.name]['tags'].include?('class=base'), 'puppet class missing'
-    assert rundeck[h.name]['tags'].include?('kernelversion=undefined'), 'kernelversion fact missing'
-    assert rundeck[h.name]['tags'].include?('ipaddress=undefined'), 'ipaddress fact missing'
+    @host.puppetclasses = [FactoryGirl.create(:puppetclass, :environments => [@host.environment])]
+    @host.params['rundeckfacts'] = "kernelversion, ipaddress\n"
+    @host.save!
+    rundeck = RundeckFormatter.new(@host).output
+    assert rundeck[@host.name]['tags'].include?("class=#{@host.puppetclasses.first.name}"), 'puppet class missing'
+    assert rundeck[@host.name]['tags'].include?('kernelversion=undefined'), 'kernelversion fact missing'
+    assert rundeck[@host.name]['tags'].include?('ipaddress=undefined'), 'ipaddress fact missing'
   end
 
 end
