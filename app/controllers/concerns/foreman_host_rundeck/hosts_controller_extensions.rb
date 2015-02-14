@@ -11,7 +11,7 @@ module ForemanHostRundeck
       if params[:format] == 'yaml'
         result = {}
         hosts = resource_base.search_for(params[:search], :order => params[:order]).includes(included_associations)
-        hosts.each { |h| result.update(RundeckFormatter.new(h).output) }
+        hosts.each { |h| result.update(RundeckFormatter.new(h, params).output) }
         render :text => result.to_yaml
       else
         index_without_rundeck

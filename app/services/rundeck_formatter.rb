@@ -1,11 +1,13 @@
 class RundeckFormatter
   attr_reader :host
+  attr_reader :params
 
-  delegate :comment, :name, :arch, :environment, :os, :facts_hash, :puppetclasses_names, :params, :to => :host
+  delegate :comment, :name, :arch, :environment, :os, :facts_hash, :puppetclasses_names, :to => :params, :to => :host
   delegate :logger, :to => :Rails
 
-  def initialize(host)
+  def initialize(host, params)
     @host = host
+    @params = params
   end
 
     def output
