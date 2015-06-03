@@ -7,14 +7,14 @@ module ForemanHostRundeck
       alias_method_chain :show, :rundeck
     end
 
-    def index_with_rundeck
+    def index_with_rundeck(title = nil)
       if params[:format] == 'yaml'
         result = {}
         hosts = resource_base.search_for(params[:search], :order => params[:order]).includes(included_associations)
         hosts.each { |h| result.update(RundeckFormatter.new(h).output) }
         render :text => result.to_yaml
       else
-        index_without_rundeck
+        index_without_rundeck(title)
       end
     end
 
