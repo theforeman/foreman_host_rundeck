@@ -19,8 +19,6 @@ module ForemanHostRundeck
     config.to_prepare do
       begin
         HostsController.send(:include, ForemanHostRundeck::HostsControllerExtensions)
-      # rescue => e
-      #   puts "ForemanHostRundeck: skipping engine hook (#{e})"
        end
     end
   end
