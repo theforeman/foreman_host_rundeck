@@ -1,11 +1,53 @@
-# ForemanHostRundeck
+# Foreman Host Rundeck
 
 Creates a yaml representation of rundeck on hosts
 
+* Website: [TheForeman.org](http://theforeman.org)
+* ServerFault tag: [Foreman](http://serverfault.com/questions/tagged/foreman)
+* Issues: [foreman_rundeck Redmine](http://projects.theforeman.org/projects/rundeck/issues)
+* Wiki: [Foreman wiki](http://projects.theforeman.org/projects/foreman/wiki/About)
+* Community and support: #theforeman for general support, #theforeman-dev for development chat in [Freenode](irc.freenode.net)
+* Mailing lists:
+    * [foreman-users](https://groups.google.com/forum/?fromgroups#!forum/foreman-users)
+    * [foreman-dev](https://groups.google.com/forum/?fromgroups#!forum/foreman-dev)
+
 ## Installation
 
-See [How_to_Install_a_Plugin](http://projects.theforeman.org/projects/foreman/wiki/How_to_Install_a_Plugin)
-for how to install Foreman plugins
+Please see the Foreman manual for appropriate instructions:
+
+* [Foreman: How to Install a Plugin](http://theforeman.org/plugins/)
+
+### Red Hat, CentOS, Fedora, Scientific Linux (rpm)
+
+Set up the repo as explained in the link above, then run (on 1.10+):
+
+    # yum install tfm-rubygem-foreman_host_rundeck
+
+On 1.9:
+
+    # yum install ruby193-rubygem-foreman_host_rundeck
+
+### Debian, Ubuntu (deb)
+
+Set up the repo as explained in the link above, then run:
+
+    # apt-get install ruby-foreman-host-rundeck
+
+### Bundle (gem)
+
+Add the following to bundler.d/Gemfile.local.rb in your Foreman installation directory (/usr/share/foreman by default)
+
+    $ gem 'foreman_host_rundeck'
+
+Then run `bundle install` and `foreman-rake db:migrate` from the same directory
+
+--------------
+
+To verify that the installation was successful, go to Foreman, top bar **Administer > About** and check 'foreman_host_rundeck' shows up in the **System Status** menu under the Plugins tab.
+
+## Usage
+
+[Our wiki covers the basics of Rundeck integration](http://projects.theforeman.org/projects/foreman/wiki/Rundeck_Integration)
 
 ## Contributing
 
