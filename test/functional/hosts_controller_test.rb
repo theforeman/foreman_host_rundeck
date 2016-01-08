@@ -38,7 +38,7 @@ class HostsControllerTest < ActionController::TestCase
       assert_equal host.name, yaml[host.name]["hostname"]
       assert_equal host.os.name, yaml[host.name]["osName"]  # rundeck-specific field
       assert_kind_of Hash, yaml[host.name]["Enc_output"]
-      assert_present yaml[host.name]["Enc_output"]
+      assert yaml[host.name]["Enc_output"].present?
     end
   end
 end
