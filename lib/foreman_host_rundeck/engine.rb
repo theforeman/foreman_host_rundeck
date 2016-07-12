@@ -4,7 +4,7 @@ module ForemanHostRundeck
     config.autoload_paths += Dir["#{config.root}/app/controllers/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/services"]
 
-    initializer 'foreman_host_rundeck.register_plugin', :after => :finisher_hook do |app|
+    initializer 'foreman_host_rundeck.register_plugin', :before => :finisher_hook do |app|
       Foreman::Plugin.register :foreman_host_rundeck do
         requires_foreman '>= 1.6'
 
