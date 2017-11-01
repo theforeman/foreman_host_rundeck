@@ -3,9 +3,9 @@ require 'test_plugin_helper'
 class HostsControllerTest < ActionController::TestCase
   setup do
     User.current = User.find_by_login "admin"
-    @host = FactoryGirl.create(:host, :operatingsystem => FactoryGirl.create(:operatingsystem),
-                               :architecture => FactoryGirl.create(:architecture),
-                               :puppetclasses => [FactoryGirl.create(:puppetclass)])
+    @host = FactoryBot.create(:host, :operatingsystem => FactoryBot.create(:operatingsystem),
+                               :architecture => FactoryBot.create(:architecture),
+                               :puppetclasses => [FactoryBot.create(:puppetclass)])
   end
 
     test "index returns YAML output for rundeck" do
