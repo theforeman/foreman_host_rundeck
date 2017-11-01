@@ -3,8 +3,8 @@ require 'test_plugin_helper'
 class ForemanHostRundeckTest < ActiveSupport::TestCase
   setup do
     User.current = User.find_by_login "admin"
-    @host = FactoryGirl.create(:host, :operatingsystem => FactoryGirl.create(:operatingsystem),
-                               :architecture => FactoryGirl.create(:architecture))
+    @host = FactoryBot.create(:host, :operatingsystem => FactoryBot.create(:operatingsystem),
+                               :architecture => FactoryBot.create(:architecture))
   end
 
   test "#rundeck returns hash" do
@@ -17,7 +17,7 @@ class ForemanHostRundeckTest < ActiveSupport::TestCase
   end
 
   test "#rundeck returns extra facts as tags" do
-    @host.puppetclasses = [FactoryGirl.create(:puppetclass, :environments => [@host.environment])]
+    @host.puppetclasses = [FactoryBot.create(:puppetclass, :environments => [@host.environment])]
     @host.params['rundeckfacts'] = "kernelversion, ipaddress\n"
     @host.save!
     rundeck = RundeckFormatter.new(@host).output
@@ -27,7 +27,7 @@ class ForemanHostRundeckTest < ActiveSupport::TestCase
   end
 
   test "#rundeck returns global parameters with values as tags" do
-    @host.puppetclasses = [FactoryGirl.create(:puppetclass, :environments => [@host.environment])]
+    @host.puppetclasses = [FactoryBot.create(:puppetclass, :environments => [@host.environment])]
     @host.params['rundeckfacts'] = "kernelversion, ipaddress\n"
     @host.params['rundeckglobalparams'] = "stage\n"
     @host.params['stage'] = "prod"
@@ -37,7 +37,7 @@ class ForemanHostRundeckTest < ActiveSupport::TestCase
   end
 
   test "#rundeck returns undefined global parameters as tags" do
-    @host.puppetclasses = [FactoryGirl.create(:puppetclass, :environments => [@host.environment])]
+    @host.puppetclasses = [FactoryBot.create(:puppetclass, :environments => [@host.environment])]
     @host.params['rundeckfacts'] = "kernelversion, ipaddress\n"
     @host.params['rundeckglobalparams'] = "someparam, stage\n"
     @host.save!
@@ -47,7 +47,7 @@ class ForemanHostRundeckTest < ActiveSupport::TestCase
   end
 
   test "#rundeck does not returns global parameters that are not in params['rundeckglobalparams']" do
-    @host.puppetclasses = [FactoryGirl.create(:puppetclass, :environments => [@host.environment])]
+    @host.puppetclasses = [FactoryBot.create(:puppetclass, :environments => [@host.environment])]
     @host.params['rundeckfacts'] = "kernelversion, ipaddress\n"
     @host.params['rundeckglobalparams'] = "someparam\n"
     @host.save!
