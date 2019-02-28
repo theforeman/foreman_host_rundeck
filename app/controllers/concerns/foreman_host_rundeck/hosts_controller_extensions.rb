@@ -1,30 +1,21 @@
 module ForemanHostRundeck
   module HostsControllerExtensions
-    extend ActiveSupport::Concern
-
-    included do
-      alias_method_chain :index, :rundeck
-      alias_method_chain :show, :rundeck
-    end
-
-    def index_with_rundeck(title = nil)
+    def index
       if params[:format] == 'yaml'
         result = {}
         hosts = resource_base.search_for(params[:search], :order => params[:order]).includes(included_associations)
         hosts.each { |h| result.update(RundeckFormatter.new(h).output) }
-        render :text => result.to_yaml
+        render :plain => result.to_yaml
       else
-        index_without_rundeck(title)
+        super
       end
     end
-
-    def show_with_rundeck
+    def show
       if params[:format] == 'yaml'
-        render :text => RundeckFormatter.new(@host, params[:add_enc_output]).output.to_yaml
+        render :plain => RundeckFormatter.new(@host).output.to_yaml
       else
-        show_without_rundeck
+        super
       end
     end
-
   end
 end

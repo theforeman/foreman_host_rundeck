@@ -6,7 +6,7 @@ module ForemanHostRundeck
 
     initializer 'foreman_host_rundeck.register_plugin', :before => :finisher_hook do |app|
       Foreman::Plugin.register :foreman_host_rundeck do
-        requires_foreman '>= 1.6'
+        requires_foreman '>= 1.17'
 
         # Add permissions
         security_block :foreman_host_rundeck do
@@ -18,7 +18,7 @@ module ForemanHostRundeck
     #Include concerns in this config.to_prepare block
     config.to_prepare do
       begin
-        HostsController.send(:include, ForemanHostRundeck::HostsControllerExtensions)
+        HostsController.send(:prepend, ForemanHostRundeck::HostsControllerExtensions)
        end
     end
   end
