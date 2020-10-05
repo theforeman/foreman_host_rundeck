@@ -1,7 +1,7 @@
 class RundeckFormatter
   attr_reader :host
 
-  delegate :comment, :name, :arch, :environment, :os, :facts_hash, :puppetclasses_names, :params,
+  delegate :comment, :name, :arch, :environment, :os, :facts_hash, :puppetclass_names, :params,
            :hostgroup, :organization, :location, :info,  :to => :host
   delegate :logger, :to => :Rails
 
@@ -11,7 +11,7 @@ class RundeckFormatter
   end
 
     def output
-    rdecktags = puppetclasses_names.map { |k| "class=#{k}" }
+    rdecktags = puppetclass_names.map { |k| "class=#{k}" }
     unless params['rundeckfacts'].empty?
       rdecktags += format_tags(params,'rundeckfacts', facts_hash)
     end
